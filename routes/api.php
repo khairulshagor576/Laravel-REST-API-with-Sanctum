@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 //Public Api
 //Route::get('/students',[StudentController::class,'index']);
-Route::get('/student/{id}',[StudentController::class,'show']);
+// Route::get('/student/{id}',[StudentController::class,'show']);
 // Route::post('/students',[StudentController::class,'store']);
 // Route::put('/student/{id}',[StudentController::class,'update']);
 // Route::delete('/student/{id}',[StudentController::class,'destroy']);
@@ -17,8 +17,17 @@ Route::get('/student/{id}',[StudentController::class,'show']);
 
 //Protected Api
 
-  Route::middleware('auth:sanctum')->get('/students',[StudentController::class,'index']);
-  Route::middleware('auth:sanctum')->get('/student/{id}',[StudentController::class,'show']);
+  //Route::middleware('auth:sanctum')->get('/students',[StudentController::class,'index']);
+
+  Route::middleware('auth:sanctum')->group(function(){
+
+    Route::get('/students',[StudentController::class,'index']);
+    Route::get('/student/{id}',[StudentController::class,'show']);
+    Route::post('/students',[StudentController::class,'store']);
+    Route::put('/student/{id}',[StudentController::class,'update']);
+    Route::delete('/student/{id}',[StudentController::class,'destroy']);
+    Route::get('/student/search/{city}',[StudentController::class,'search']);
+  });
 
 
 
