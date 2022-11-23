@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/student/search/{city}',[StudentController::class,'search']);
 
  Route::post('/register',[UserController::class,'register']);
+ Route::post('/login',[UserController::class,'login']);
 
 //Protected Api
 
