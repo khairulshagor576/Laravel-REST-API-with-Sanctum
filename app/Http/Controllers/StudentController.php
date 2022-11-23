@@ -12,6 +12,8 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     //testing git
     public function index()
     {
         return Student::all();
